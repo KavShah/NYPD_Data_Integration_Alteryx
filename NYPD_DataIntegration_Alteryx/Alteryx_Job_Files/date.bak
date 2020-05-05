@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2019.4">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">C:\Users\mihir\Downloads\DimDate_Input.csv</File>
+          <FormatSpecificOptions>
+            <CodePage>28591</CodePage>
+            <Delimeter>,</Delimeter>
+            <IgnoreErrors>False</IgnoreErrors>
+            <FieldLen>254</FieldLen>
+            <AllowShareWrite>False</AllowShareWrite>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DimDate_Input.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="DateSK" size="254" source="File: C:\Users\mihir\Downloads\DimDate_Input.csv" type="V_WString" />
+            <Field name="DateAK" size="254" source="File: C:\Users\mihir\Downloads\DimDate_Input.csv" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="486" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="23">odbc:DSN=mysql;UID=root;PWD=__EncPwd1__|||purchasing.dimdate</File>
+          <Passwords>487D4EEFA97D5CE4CEEC6E3CA931CDF0755F176F7B1AAE80068AF</Passwords>
+          <FormatSpecificOptions>
+            <SpatialObjSize>8000</SpatialObjSize>
+            <TransactionSize>10000</TransactionSize>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <PostSQL />
+            <TableStyle>Quoted</TableStyle>
+            <AppendMap>
+              <AppendMapping mode="Custom">
+                <Field Source="DateSK" Dest="DateSK" />
+                <Field Source="DateTime_Out" Dest="DateAK" />
+              </AppendMapping>
+            </AppendMap>
+            <PreSQL />
+            <TransactionMessages>False</TransactionMessages>
+            <OutputOption>Delete</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DSN=mysql
+Query=purchasing.dimdate</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DateTime.DateTime">
+        <Position x="174" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <IsFrom value="False" />
+          <InputFieldName>DateAK</InputFieldName>
+          <Format>yyyy-MM-dd</Format>
+          <OutputFieldName>DateTime_Out</OutputFieldName>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Convert DateAK From:
+yyyy-MM-dd</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDateTime" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DateTime.DateTime">
+        <Position x="282" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <IsFrom value="False" />
+          <InputFieldName>DateSK</InputFieldName>
+          <Format>yyyy-MM-dd</Format>
+          <OutputFieldName>DateTime_Out2</OutputFieldName>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Convert DateSK From:
+yyyy-MM-dd</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDateTime" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="366" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\mihir\AppData\Local\Temp\Engine_31160_2d8d14b79ae7490dbd7ccd62506421cf_\Engine_8628_cf4bbd6a32d04fea91101d464ed63a90_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>date</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

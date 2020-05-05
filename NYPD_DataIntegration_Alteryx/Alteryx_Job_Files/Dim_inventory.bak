@@ -1,0 +1,284 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2019.4">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="66" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <CachedCosmeticName />
+          <File RecordLimit="" FileFormat="23">aka:inve|||select Production.ProductInventory.* 
+from Production.ProductInventory</File>
+          <FormatSpecificOptions>
+            <PreSQL />
+            <PreSQLOnConfig>True</PreSQLOnConfig>
+            <NoProgress>True</NoProgress>
+            <CacheData>False</CacheData>
+            <TableStyle>Quoted</TableStyle>
+            <ReadUncommitted>False</ReadUncommitted>
+            <PostSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:inve
+Query=select Production.ProductInv...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="ProductID" source="File: aka:inve|||select Production.ProductInventory.* &#xA;from Production.ProductInventory" type="Int32" />
+            <Field name="LocationID" source="File: aka:inve|||select Production.ProductInventory.* &#xA;from Production.ProductInventory" type="Int16" />
+            <Field name="Shelf" size="10" source="File: aka:inve|||select Production.ProductInventory.* &#xA;from Production.ProductInventory" type="V_WString" />
+            <Field name="Bin" source="File: aka:inve|||select Production.ProductInventory.* &#xA;from Production.ProductInventory" type="Int16" />
+            <Field name="Quantity" source="File: aka:inve|||select Production.ProductInventory.* &#xA;from Production.ProductInventory" type="Int16" />
+            <Field name="rowguid" size="36" source="File: aka:inve|||select Production.ProductInventory.* &#xA;from Production.ProductInventory" type="V_String" />
+            <Field name="ModifiedDate" source="File: aka:inve|||select Production.ProductInventory.* &#xA;from Production.ProductInventory" type="DateTime" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="354" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="17">aka:ora1|||ALTERYX.dim_inventory</File>
+          <Passwords />
+          <CachedCosmeticName />
+          <FormatSpecificOptions>
+            <DropTable>False</DropTable>
+            <TransactionSize>10000</TransactionSize>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <PostSQL />
+            <Projection />
+            <TableStyle>Quoted</TableStyle>
+            <AppendMap>
+              <AppendMapping mode="Custom">
+                <Field Source="Shelf" Dest="shelf" />
+                <Field Source="Bin" Dest="bin" />
+                <Field Source="Quantity" Dest="quantity" />
+                <Field Source="rowguid" Dest="rowguid" />
+                <Field Source="ModifiedDate" Dest="ModifiedDate" />
+                <Field Source="productSK" Dest="productSK" />
+                <Field Source="LocationIDSK" Dest="LocationIDSK" />
+              </AppendMapping>
+            </AppendMap>
+            <PreSQL />
+            <CreateSpatialIdx>True</CreateSpatialIdx>
+            <TransactionMessages>False</TransactionMessages>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:ora1
+Query=ALTERYX.dim_inventory</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords>487D4EEFA97D5CE4CEEC6E3CA931CDF0755F176F7B1AAE80068AF</Passwords>
+          <File RecordLimit="" FileFormat="23">odbc:DSN=mysql;UID=root;PWD=__EncPwd1__|||select purchasing.dimproduct.productSK,
+	purchasing.dimproduct.ProductID 
+from purchasing.dimproduct</File>
+          <FormatSpecificOptions>
+            <PreSQL />
+            <ReadCentroids>False</ReadCentroids>
+            <PreSQLOnConfig>True</PreSQLOnConfig>
+            <NoProgress>True</NoProgress>
+            <CacheData>False</CacheData>
+            <TableStyle>Quoted</TableStyle>
+            <ReadUncommitted>False</ReadUncommitted>
+            <PostSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DSN=mysql
+Query=select purchasing.dimproduct...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="PrimaryKey" name="productSK" source="File: odbc:DSN=mysql;UID=root;PWD=__EncPwd1__|||select purchasing.dimproduct.productSK,&#xA;	purchasing.dimproduct.ProductID &#xA;from purchasing.dimproduct" type="Int32" />
+            <Field name="ProductID" source="File: odbc:DSN=mysql;UID=root;PWD=__EncPwd1__|||select purchasing.dimproduct.productSK,&#xA;	purchasing.dimproduct.ProductID &#xA;from purchasing.dimproduct" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="174" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="ProductID" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="ProductID" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Right_ProductID" selected="True" rename="Right_ProductID" input="Right_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="198" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords>487D4EEFA97D5CE4CEEC6E3CA931CDF0755F176F7B1AAE80068AF</Passwords>
+          <File RecordLimit="" FileFormat="23">odbc:DSN=mysql;UID=root;PWD=__EncPwd1__|||select purchasing.dim_location.LocationIDSK,
+	purchasing.dim_location.LocationID 
+from purchasing.dim_location</File>
+          <FormatSpecificOptions>
+            <PreSQL />
+            <ReadCentroids>False</ReadCentroids>
+            <PreSQLOnConfig>True</PreSQLOnConfig>
+            <NoProgress>True</NoProgress>
+            <CacheData>False</CacheData>
+            <TableStyle>Quoted</TableStyle>
+            <ReadUncommitted>False</ReadUncommitted>
+            <PostSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DSN=mysql
+Query=select purchasing.dim_locati...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="PrimaryKey" name="LocationIDSK" source="File: odbc:DSN=mysql;UID=root;PWD=__EncPwd1__|||select purchasing.dim_location.LocationIDSK,&#xA;	purchasing.dim_location.LocationID &#xA;from purchasing.dim_location" type="Int32" />
+            <Field name="LocationID" source="File: odbc:DSN=mysql;UID=root;PWD=__EncPwd1__|||select purchasing.dim_location.LocationIDSK,&#xA;	purchasing.dim_location.LocationID &#xA;from purchasing.dim_location" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="270" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="LocationID" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="LocationID" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Right_LocationID" selected="True" rename="Right_LocationID" input="Right_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="4" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Join" />
+      <Destination ToolID="6" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Join" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Dim_inventory</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

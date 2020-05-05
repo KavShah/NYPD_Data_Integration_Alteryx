@@ -1,0 +1,280 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2019.4">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" FileFormat="23">aka:cat|||select Production.ProductCategory.* 
+from Production.ProductCategory</File>
+          <FormatSpecificOptions>
+            <PreSQL />
+            <PreSQLOnConfig>True</PreSQLOnConfig>
+            <NoProgress>True</NoProgress>
+            <CacheData>False</CacheData>
+            <TableStyle>Quoted</TableStyle>
+            <ReadUncommitted>False</ReadUncommitted>
+            <PostSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:cat
+Query=select Production.ProductCat...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="ProductCategoryID" source="File: aka:cat|||select Production.ProductCategory.* &#xA;from Production.ProductCategory" type="Int32" />
+            <Field name="Name" size="50" source="File: aka:cat|||select Production.ProductCategory.* &#xA;from Production.ProductCategory" type="V_WString" />
+            <Field name="rowguid" size="36" source="File: aka:cat|||select Production.ProductCategory.* &#xA;from Production.ProductCategory" type="V_String" />
+            <Field name="ModifiedDate" source="File: aka:cat|||select Production.ProductCategory.* &#xA;from Production.ProductCategory" type="DateTime" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="162" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="17">aka:ora1|||ALTERYX.dimproductcategory</File>
+          <Passwords />
+          <CachedCosmeticName />
+          <FormatSpecificOptions>
+            <DropTable>Append</DropTable>
+            <TransactionSize>10000</TransactionSize>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <PostSQL />
+            <Projection />
+            <TableStyle>Quoted</TableStyle>
+            <PreSQL />
+            <CreateSpatialIdx>True</CreateSpatialIdx>
+            <TransactionMessages>False</TransactionMessages>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:ora1
+Query=ALTERYX.dimproductcategory</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="342" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <CachedCosmeticName />
+          <File RecordLimit="" FileFormat="23">aka:subcat|||select Production.ProductSubcategory.* 
+from Production.ProductSubcategory</File>
+          <FormatSpecificOptions>
+            <PreSQL />
+            <PreSQLOnConfig>True</PreSQLOnConfig>
+            <NoProgress>True</NoProgress>
+            <CacheData>False</CacheData>
+            <TableStyle>Quoted</TableStyle>
+            <ReadUncommitted>False</ReadUncommitted>
+            <PostSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:subcat
+Query=select Production.ProductSub...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="ProductSubcategoryID" source="File: aka:subcat|||select Production.ProductSubcategory.* &#xA;from Production.ProductSubcategory" type="Int32" />
+            <Field name="ProductCategoryID" source="File: aka:subcat|||select Production.ProductSubcategory.* &#xA;from Production.ProductSubcategory" type="Int32" />
+            <Field name="Name" size="50" source="File: aka:subcat|||select Production.ProductSubcategory.* &#xA;from Production.ProductSubcategory" type="V_WString" />
+            <Field name="rowguid" size="36" source="File: aka:subcat|||select Production.ProductSubcategory.* &#xA;from Production.ProductSubcategory" type="V_String" />
+            <Field name="ModifiedDate" source="File: aka:subcat|||select Production.ProductSubcategory.* &#xA;from Production.ProductSubcategory" type="DateTime" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="570" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="17">aka:ora1|||ALTERYX.dimproductsubcategory</File>
+          <Passwords />
+          <CachedCosmeticName />
+          <FormatSpecificOptions>
+            <DropTable>Delete</DropTable>
+            <TransactionSize>10000</TransactionSize>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <PostSQL />
+            <Projection />
+            <TableStyle>Quoted</TableStyle>
+            <AppendMap>
+              <AppendMapping mode="Custom">
+                <Field Source="ProductSubcategoryID" Dest="ProductSubcategoryID" />
+                <Field Source="Name" Dest="Name" />
+                <Field Source="rowguid" Dest="rowguid" />
+                <Field Source="ModifiedDate" Dest="ModifiedDate" />
+                <Field Source="ProductCategorySK" Dest="ProductCategorySK" />
+              </AppendMapping>
+            </AppendMap>
+            <PreSQL />
+            <CreateSpatialIdx>True</CreateSpatialIdx>
+            <TransactionMessages>False</TransactionMessages>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:ora1
+Query=ALTERYX.dimproductsubcategor...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="342" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords>487D4EEFA97D5CE4CEEC6E3CA931CDF0755F176F7B1AAE80068AF</Passwords>
+          <File RecordLimit="" FileFormat="23">odbc:DSN=mysql;UID=root;PWD=__EncPwd1__|||select purchasing.dimproductcategory.ProductCategorySK,
+	purchasing.dimproductcategory.ProductCategoryID 
+from purchasing.dimproductcategory</File>
+          <FormatSpecificOptions>
+            <PreSQL />
+            <ReadCentroids>False</ReadCentroids>
+            <PreSQLOnConfig>True</PreSQLOnConfig>
+            <NoProgress>True</NoProgress>
+            <CacheData>False</CacheData>
+            <TableStyle>Quoted</TableStyle>
+            <ReadUncommitted>False</ReadUncommitted>
+            <PostSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DSN=mysql
+Query=select purchasing.dimproduct...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="PrimaryKey" name="ProductCategorySK" source="File: odbc:DSN=mysql;UID=root;PWD=__EncPwd1__|||select purchasing.dimproductcategory.ProductCategorySK,&#xA;	purchasing.dimproductcategory.ProductCategoryID &#xA;from purchasing.dimproductcategory" type="Int32" />
+            <Field name="ProductCategoryID" source="File: odbc:DSN=mysql;UID=root;PWD=__EncPwd1__|||select purchasing.dimproductcategory.ProductCategorySK,&#xA;	purchasing.dimproductcategory.ProductCategoryID &#xA;from purchasing.dimproductcategory" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="462" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="ProductCategoryID" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="ProductCategoryID" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left_ProductCategoryID" selected="False" input="Left_" />
+                <SelectField field="Right_ProductCategoryID" selected="False" rename="Right_ProductCategoryID" input="Right_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="6" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Join" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Cat&amp;SubCat</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

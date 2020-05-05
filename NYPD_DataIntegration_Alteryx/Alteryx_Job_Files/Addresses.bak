@@ -1,0 +1,398 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2019.4">
+  <Nodes>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="66" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <CachedCosmeticName />
+          <File RecordLimit="" FileFormat="17">aka:country|||select AW2017NEU_PERSON.COUNTRYREGION.* 
+from AW2017NEU_PERSON.COUNTRYREGION</File>
+          <FormatSpecificOptions>
+            <PreSQLOnConfig>True</PreSQLOnConfig>
+            <ReadCentroids>False</ReadCentroids>
+            <TableStyle>Quoted</TableStyle>
+            <NoProgress>False</NoProgress>
+            <CacheData>False</CacheData>
+            <PostSQL />
+            <PreSQL />
+            <ForceSqlWcharSupport>False</ForceSqlWcharSupport>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:country
+Query=select AW2017NEU_PERSON.COUN...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="PrimaryKey" name="COUNTRYREGIONCODE" size="3" source="File: aka:country|||select AW2017NEU_PERSON.COUNTRYREGION.* &#xA;from AW2017NEU_PERSON.COUNTRYREGION" type="WString" />
+            <Field name="COUNTRYREGIONNAME" size="50" source="File: aka:country|||select AW2017NEU_PERSON.COUNTRYREGION.* &#xA;from AW2017NEU_PERSON.COUNTRYREGION" type="V_WString" />
+            <Field name="MODIFIEDDATE" source="File: aka:country|||select AW2017NEU_PERSON.COUNTRYREGION.* &#xA;from AW2017NEU_PERSON.COUNTRYREGION" type="DateTime" />
+            <Field name="ETLLOADID" source="File: aka:country|||select AW2017NEU_PERSON.COUNTRYREGION.* &#xA;from AW2017NEU_PERSON.COUNTRYREGION" type="Int64" />
+            <Field name="ETLLOADDATE" source="File: aka:country|||select AW2017NEU_PERSON.COUNTRYREGION.* &#xA;from AW2017NEU_PERSON.COUNTRYREGION" type="DateTime" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="198" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="17">aka:ora1|||ALTERYX.dimcountryregion</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <DropTable>False</DropTable>
+            <TransactionSize>10000</TransactionSize>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <PostSQL />
+            <Projection />
+            <TableStyle>Quoted</TableStyle>
+            <PreSQL />
+            <CreateSpatialIdx>True</CreateSpatialIdx>
+            <TransactionMessages>False</TransactionMessages>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:ora1
+Query=ALTERYX.dimcountryregion</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" FileFormat="17">aka:address1|||select AW2017NEU_PERSON.ADDRESS.* 
+from AW2017NEU_PERSON.ADDRESS</File>
+          <FormatSpecificOptions>
+            <PreSQLOnConfig>True</PreSQLOnConfig>
+            <ReadCentroids>False</ReadCentroids>
+            <TableStyle>Quoted</TableStyle>
+            <NoProgress>False</NoProgress>
+            <CacheData>False</CacheData>
+            <PostSQL />
+            <PreSQL />
+            <ForceSqlWcharSupport>False</ForceSqlWcharSupport>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:address1
+Query=select AW2017NEU_PERSON.ADDR...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="PrimaryKey" name="ADDRESSID" source="File: aka:address1|||select AW2017NEU_PERSON.ADDRESS.* &#xA;from AW2017NEU_PERSON.ADDRESS" type="Int64" />
+            <Field name="ADDRESSLINE1" size="60" source="File: aka:address1|||select AW2017NEU_PERSON.ADDRESS.* &#xA;from AW2017NEU_PERSON.ADDRESS" type="V_WString" />
+            <Field name="ADDRESSLINE2" size="60" source="File: aka:address1|||select AW2017NEU_PERSON.ADDRESS.* &#xA;from AW2017NEU_PERSON.ADDRESS" type="V_WString" />
+            <Field name="CITY" size="30" source="File: aka:address1|||select AW2017NEU_PERSON.ADDRESS.* &#xA;from AW2017NEU_PERSON.ADDRESS" type="WString" />
+            <Field name="STATEPROVINCEID" source="File: aka:address1|||select AW2017NEU_PERSON.ADDRESS.* &#xA;from AW2017NEU_PERSON.ADDRESS" type="Int64" />
+            <Field name="POSTALCODE" size="15" source="File: aka:address1|||select AW2017NEU_PERSON.ADDRESS.* &#xA;from AW2017NEU_PERSON.ADDRESS" type="WString" />
+            <Field name="MODIFIEDDATE" source="File: aka:address1|||select AW2017NEU_PERSON.ADDRESS.* &#xA;from AW2017NEU_PERSON.ADDRESS" type="DateTime" />
+            <Field name="ETLLOADID" source="File: aka:address1|||select AW2017NEU_PERSON.ADDRESS.* &#xA;from AW2017NEU_PERSON.ADDRESS" type="Int64" />
+            <Field name="ETLLOADDATE" source="File: aka:address1|||select AW2017NEU_PERSON.ADDRESS.* &#xA;from AW2017NEU_PERSON.ADDRESS" type="DateTime" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="186" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="17">aka:ora1|||ALTERYX.dimaddress</File>
+          <Passwords />
+          <CachedCosmeticName />
+          <FormatSpecificOptions>
+            <DropTable>False</DropTable>
+            <TransactionSize>10000</TransactionSize>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <PostSQL />
+            <Projection />
+            <TableStyle>Quoted</TableStyle>
+            <AppendMap>
+              <AppendMapping mode="Custom">
+                <Field Source="ADDRESSID" Dest="ADDRESSID" />
+                <Field Source="ADDRESSLINE1" Dest="ADDRESSLINE1" />
+                <Field Source="ADDRESSLINE2" Dest="ADDRESSLINE2" />
+                <Field Source="CITY" Dest="CITY" />
+                <Field Source="STATEPROVINCEID" Dest="stateprovinceSK" />
+                <Field Source="POSTALCODE" Dest="POSTALCODE" />
+                <Field Source="MODIFIEDDATE" Dest="MODIFIEDDATE" />
+                <Field Source="ETLLOADID" Dest="ETLLOADID" />
+                <Field Source="ETLLOADDATE" Dest="ETLLOADDATE" />
+              </AppendMapping>
+            </AppendMap>
+            <PreSQL />
+            <CreateSpatialIdx>True</CreateSpatialIdx>
+            <TransactionMessages>False</TransactionMessages>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:ora1
+Query=ALTERYX.dimaddress</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="342" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <CachedCosmeticName />
+          <File RecordLimit="" FileFormat="17">aka:loc|||select AW2017NEU_PERSON.STATEPROVINCE.* 
+from AW2017NEU_PERSON.STATEPROVINCE</File>
+          <FormatSpecificOptions>
+            <PreSQLOnConfig>True</PreSQLOnConfig>
+            <ReadCentroids>False</ReadCentroids>
+            <TableStyle>Quoted</TableStyle>
+            <NoProgress>False</NoProgress>
+            <CacheData>False</CacheData>
+            <PostSQL />
+            <PreSQL />
+            <ForceSqlWcharSupport>False</ForceSqlWcharSupport>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:loc
+Query=select AW2017NEU_PERSON.STAT...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="PrimaryKey" name="STATEPROVINCEID" source="File: aka:loc|||select AW2017NEU_PERSON.STATEPROVINCE.* &#xA;from AW2017NEU_PERSON.STATEPROVINCE" type="Int64" />
+            <Field name="STATEPROVINCECODE" size="3" source="File: aka:loc|||select AW2017NEU_PERSON.STATEPROVINCE.* &#xA;from AW2017NEU_PERSON.STATEPROVINCE" type="WString" />
+            <Field name="COUNTRYREGIONCODE" size="3" source="File: aka:loc|||select AW2017NEU_PERSON.STATEPROVINCE.* &#xA;from AW2017NEU_PERSON.STATEPROVINCE" type="WString" />
+            <Field name="ISONLYSTATEPROVINCEFLAG" source="File: aka:loc|||select AW2017NEU_PERSON.STATEPROVINCE.* &#xA;from AW2017NEU_PERSON.STATEPROVINCE" type="Int64" />
+            <Field name="STATEPROVINCENAME" size="50" source="File: aka:loc|||select AW2017NEU_PERSON.STATEPROVINCE.* &#xA;from AW2017NEU_PERSON.STATEPROVINCE" type="V_WString" />
+            <Field name="TERRITORYID" source="File: aka:loc|||select AW2017NEU_PERSON.STATEPROVINCE.* &#xA;from AW2017NEU_PERSON.STATEPROVINCE" type="Int64" />
+            <Field name="MODIFIEDDATE" source="File: aka:loc|||select AW2017NEU_PERSON.STATEPROVINCE.* &#xA;from AW2017NEU_PERSON.STATEPROVINCE" type="DateTime" />
+            <Field name="ETLLOADID" source="File: aka:loc|||select AW2017NEU_PERSON.STATEPROVINCE.* &#xA;from AW2017NEU_PERSON.STATEPROVINCE" type="Int64" />
+            <Field name="ETLLOADDATE" source="File: aka:loc|||select AW2017NEU_PERSON.STATEPROVINCE.* &#xA;from AW2017NEU_PERSON.STATEPROVINCE" type="DateTime" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="558" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="17">aka:ora1|||ALTERYX.dimstateprovince</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <DropTable>False</DropTable>
+            <TransactionSize>10000</TransactionSize>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <PostSQL />
+            <Projection />
+            <TableStyle>Quoted</TableStyle>
+            <AppendMap>
+              <AppendMapping mode="Custom">
+                <Field Source="STATEPROVINCEID" Dest="STATEPROVINCEID" />
+                <Field Source="STATEPROVINCECODE" Dest="STATEPROVINCECODE" />
+                <Field Source="ISONLYSTATEPROVINCEFLAG" Dest="ISONLYSTATEPROVINCEFLAG" />
+                <Field Source="STATEPROVINCENAME" Dest="STATEPROVINCENAME" />
+                <Field Source="TERRITORYID" Dest="TERRITORYID" />
+                <Field Source="MODIFIEDDATE" Dest="MODIFIEDDATE" />
+                <Field Source="ETLLOADID" Dest="ETLLOADID" />
+                <Field Source="ETLLOADDATE" Dest="ETLLOADDATE" />
+                <Field Source="countryregionSK" Dest="countryregionSK" />
+              </AppendMapping>
+            </AppendMap>
+            <PreSQL />
+            <CreateSpatialIdx>True</CreateSpatialIdx>
+            <TransactionMessages>False</TransactionMessages>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:ora1
+Query=ALTERYX.dimstateprovince</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="414" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="COUNTRYREGIONCODE" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="COUNTRYREGIONCODE" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left_STATEPROVINCEID" selected="True" input="Left_" />
+                <SelectField field="Left_STATEPROVINCECODE" selected="True" input="Left_" />
+                <SelectField field="Left_COUNTRYREGIONCODE" selected="True" input="Left_" />
+                <SelectField field="Left_ISONLYSTATEPROVINCEFLAG" selected="True" input="Left_" />
+                <SelectField field="Left_STATEPROVINCENAME" selected="True" input="Left_" />
+                <SelectField field="Left_TERRITORYID" selected="True" input="Left_" />
+                <SelectField field="Left_MODIFIEDDATE" selected="True" input="Left_" />
+                <SelectField field="Left_ETLLOADID" selected="True" input="Left_" />
+                <SelectField field="Left_ETLLOADDATE" selected="True" input="Left_" />
+                <SelectField field="Right_COUNTRYREGIONCODE" selected="False" rename="Right_COUNTRYREGIONCODE" input="Right_" />
+                <SelectField field="Right_countryregionSK" selected="True" input="Right_" />
+                <SelectField field="Right_MODIFIEDDATE" selected="False" rename="Right_MODIFIEDDATE" input="Right_" />
+                <SelectField field="Right_ETLLOADID" selected="False" rename="Right_ETLLOADID" input="Right_" />
+                <SelectField field="Right_ETLLOADDATE" selected="False" rename="Right_ETLLOADDATE" input="Right_" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="342" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords>487D4EEFA97D5CE4CEEC6E3CA931CDF0755F176F7B1AAE80068AF</Passwords>
+          <File RecordLimit="" FileFormat="23">odbc:DSN=mysql;UID=root;PWD=__EncPwd1__|||select purchasing.dimcountryregion.* 
+from purchasing.dimcountryregion</File>
+          <FormatSpecificOptions>
+            <PreSQL />
+            <ReadCentroids>False</ReadCentroids>
+            <PreSQLOnConfig>True</PreSQLOnConfig>
+            <NoProgress>False</NoProgress>
+            <CacheData>False</CacheData>
+            <TableStyle>Quoted</TableStyle>
+            <ReadUncommitted>False</ReadUncommitted>
+            <PostSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DSN=mysql
+Query=select purchasing.dimcountry...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="COUNTRYREGIONCODE" size="3" source="File: odbc:DSN=mysql;UID=root;PWD=__EncPwd1__|||select purchasing.dimcountryregion.* &#xA;from purchasing.dimcountryregion" type="String" />
+            <Field description="PrimaryKey" name="countryregionSK" source="File: odbc:DSN=mysql;UID=root;PWD=__EncPwd1__|||select purchasing.dimcountryregion.* &#xA;from purchasing.dimcountryregion" type="Int32" />
+            <Field name="MODIFIEDDATE" source="File: odbc:DSN=mysql;UID=root;PWD=__EncPwd1__|||select purchasing.dimcountryregion.* &#xA;from purchasing.dimcountryregion" type="DateTime" />
+            <Field name="COUNTRYREGIONNAME" size="50" source="File: odbc:DSN=mysql;UID=root;PWD=__EncPwd1__|||select purchasing.dimcountryregion.* &#xA;from purchasing.dimcountryregion" type="String" />
+            <Field name="ETLLOADID" source="File: odbc:DSN=mysql;UID=root;PWD=__EncPwd1__|||select purchasing.dimcountryregion.* &#xA;from purchasing.dimcountryregion" type="Int32" />
+            <Field name="ETLLOADDATE" source="File: odbc:DSN=mysql;UID=root;PWD=__EncPwd1__|||select purchasing.dimcountryregion.* &#xA;from purchasing.dimcountryregion" type="DateTime" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="9" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="9" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Join" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Addresses</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

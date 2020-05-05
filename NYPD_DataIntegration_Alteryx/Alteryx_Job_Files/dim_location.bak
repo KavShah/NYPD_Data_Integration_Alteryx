@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2019.4">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <CachedCosmeticName />
+          <File RecordLimit="" FileFormat="23">aka:loca|||select Production.Location.* 
+from Production.Location</File>
+          <FormatSpecificOptions>
+            <PreSQL />
+            <PreSQLOnConfig>True</PreSQLOnConfig>
+            <NoProgress>True</NoProgress>
+            <CacheData>False</CacheData>
+            <TableStyle>Quoted</TableStyle>
+            <ReadUncommitted>False</ReadUncommitted>
+            <PostSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:loca
+Query=select Production.Location.*...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="LocationID" source="File: aka:loca|||select Production.Location.* &#xA;from Production.Location" type="Int16" />
+            <Field name="Name" size="50" source="File: aka:loca|||select Production.Location.* &#xA;from Production.Location" type="V_WString" />
+            <Field name="CostRate" scale="4" size="12" source="File: aka:loca|||select Production.Location.* &#xA;from Production.Location" type="FixedDecimal" />
+            <Field name="Availability" scale="2" size="10" source="File: aka:loca|||select Production.Location.* &#xA;from Production.Location" type="FixedDecimal" />
+            <Field name="ModifiedDate" source="File: aka:loca|||select Production.Location.* &#xA;from Production.Location" type="DateTime" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="150" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="17">aka:ora1|||ALTERYX.dim_location</File>
+          <Passwords />
+          <CachedCosmeticName />
+          <FormatSpecificOptions>
+            <DropTable>False</DropTable>
+            <TransactionSize>10000</TransactionSize>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <PostSQL />
+            <Projection />
+            <TableStyle>Quoted</TableStyle>
+            <PreSQL />
+            <CreateSpatialIdx>True</CreateSpatialIdx>
+            <TransactionMessages>False</TransactionMessages>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:ora1
+Query=ALTERYX.dim_location</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>dim_location</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<documents>
+  <document file=".\Addresses.yxmd" />
+  <document file=".\dim_location.yxmd" />
+  <document file=".\person.yxmd" />
+  <document file=".\phonenumber.yxmd" />
+  <document file=".\email&amp;scrapReason.yxmd" />
+  <document file=".\ListPriceCostPrice.yxmd" />
+  <document file=".\Shipmethod and Vendor.yxmd" />
+  <document file=".\Dim_inventory.yxmd" />
+  <document file=".\EmpPay.yxmd" />
+  <document file=".\Cat&amp;SubCat.yxmd" />
+  <document file=".\factpurchasing.yxmd" />
+  <document file=".\workorder.yxmd" />
+  <document file=".\workOrderRouting.yxmd" />
+  <document file=".\date.yxmd" />
+</documents>
